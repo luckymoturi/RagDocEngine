@@ -3,14 +3,10 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 import {
-  AppBar,
   Avatar,
   Box,
   Button,
-  Card,
-  CardContent,
   Chip,
-  Container,
   CssBaseline,
   Dialog,
   DialogActions,
@@ -20,11 +16,6 @@ import {
   FormControl,
   FormControlLabel,
   IconButton,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemText,
   MenuItem,
   Paper,
   Select,
