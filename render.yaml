@@ -9,7 +9,7 @@ services:
       - key: GEMINI_API_KEY
         sync: false
       - key: ALLOWED_ORIGINS
-        sync: false
+        value: "https://rag-doc-engine-5jbg.vercel.app,http://localhost:3000,http://localhost:3001"
       - key: DEBUG
         value: "False"
       - key: CHROMA_DB_PATH
