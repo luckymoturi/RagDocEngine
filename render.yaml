@@ -14,5 +14,7 @@ services:
         value: "False"
       - key: CHROMA_DB_PATH
         value: ./chroma_db
+      - key: USE_BERT_COMPARISON
+        value: "false"
       - key: PYTHON_VERSION
         value: "3.11.9"
