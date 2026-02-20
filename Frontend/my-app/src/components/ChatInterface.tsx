@@ -3,14 +3,11 @@ import API_URL from '../config';
 import {
   Avatar,
   Box,
-  Container,
   IconButton,
-  Paper,
   Stack,
   TextField,
   Typography,
   Chip,
-  Divider,
   Alert,
   Snackbar,
   Select,
@@ -114,15 +111,12 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       recognitionRef.current.lang = 'en-US';
 
       recognitionRef.current.onresult = (event: any) => {
-        let interimTranscript = '';
         let finalTranscript = '';
 
         for (let i = event.resultIndex; i < event.results.length; i++) {
           const transcript = event.results[i][0].transcript;
           if (event.results[i].isFinal) {
             finalTranscript += transcript + ' ';
-          } else {
-            interimTranscript += transcript;
           }
         }
 
@@ -165,6 +159,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       
       return () => clearTimeout(timer);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
   const toggleRecording = () => {

@@ -50,10 +50,7 @@ import {
   Chat as ChatIcon,
   Settings as SettingsIcon,
   DarkMode as DarkModeIcon,
-  LightMode as LightModeIcon,
-  CheckCircle as CheckCircleIcon,
-  Schedule as ScheduleIcon,
-  Error as ErrorIcon
+  LightMode as LightModeIcon
 } from '@mui/icons-material';
 import { ChatInterface, DocumentsView, AnalyticsView } from './components';
 
@@ -230,8 +227,8 @@ const App: React.FC = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [isRecording, setIsRecording] = useState(false);
-  const [isPlaying, setIsPlaying] = useState<string | null>(null);
+  const isRecording = false;
+  const isPlaying: string | null = null;
 
   // Search state
   const [searchOpen, setSearchOpen] = useState(false);
@@ -410,42 +407,6 @@ const App: React.FC = () => {
     }
   }, [inputMessage, selectedDocument, chatWithAllDocs, showSnackbar]);
 
-  // Voice recording simulation
-  const toggleRecording = useCallback(() => {
-    setIsRecording(!isRecording);
-    if (!isRecording) {
-      setTimeout(() => {
-        setIsRecording(false);
-        setInputMessage("What are the main topics covered in this document?");
-        showSnackbar('Voice message transcribed!', 'info');
-      }, 3000);
-    }
-  }, [isRecording, showSnackbar]);
-
-  // Audio playback simulation
-  const toggleAudioPlayback = useCallback((messageId: string) => {
-    if (isPlaying === messageId) {
-      setIsPlaying(null);
-    } else {
-      setIsPlaying(messageId);
-      setTimeout(() => setIsPlaying(null), 5000);
-    }
-  }, [isPlaying]);
-
-  const bookmarkMessage = useCallback((messageId: string) => {
-    setMessages(prev =>
-      prev.map(msg =>
-        msg.id === messageId ? { ...msg, isBookmarked: !msg.isBookmarked } : msg
-      )
-    );
-    const message = messages.find(m => m.id === messageId);
-    if (message) {
-      showSnackbar(
-        message.isBookmarked ? 'Bookmark removed' : 'Message bookmarked',
-        'info'
-      );
-    }
-  }, [messages, showSnackbar]);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
@@ -583,24 +544,6 @@ const App: React.FC = () => {
       handleDocumentUpload(Array.from(files));
     }
   }, [handleDocumentUpload]);
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'ready': return <CheckCircleIcon sx={{ color: '#10B981', fontSize: 16 }} />; // Emerald-500
-      case 'processing': return <ScheduleIcon sx={{ color: '#F59E0B', fontSize: 16 }} />; // Amber-500
-      case 'error': return <ErrorIcon sx={{ color: '#EF4444', fontSize: 16 }} />; // Red-500
-      default: return undefined;
-    }
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'ready': return '#10B981';
-      case 'processing': return '#F59E0B';
-      case 'error': return '#EF4444';
-      default: return '#64748B';
-    }
-  };
 
   // Sidebar component
   const SidebarContent = () => (
