@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import API_URL from '../config';
 import {
   Avatar,
   Box,
@@ -205,7 +206,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       setAudioError('');
 
       // Call TTS API
-      const response = await fetch('http://localhost:8000/text-to-speech', {
+      const response = await fetch(`${API_URL}/text-to-speech`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,7 +253,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
     if (targetLang === 'en') return; // Assuming English is the default and no translation needed
 
     try {
-      const response = await fetch('http://localhost:8000/translate', {
+      const response = await fetch(`${API_URL}/translate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

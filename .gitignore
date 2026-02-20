@@ -31,8 +31,12 @@ wheels/
 # Environment
 .env
 .env.local
+.env.production
 *.pem
 *.key
+!.env.example
+Frontend/my-app/.env.local
+Frontend/my-app/.env.production
 
 # Data and cache
 Backend/chroma_db/

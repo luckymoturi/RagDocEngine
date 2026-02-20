@@ -1,3 +1,4 @@
+import API_URL from './config';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
 
@@ -286,7 +287,7 @@ const App: React.FC = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch('http://localhost:8000/upload-pdf', {
+        const response = await fetch(`${API_URL}/upload-pdf`, {
           method: 'POST',
           body: formData
         });
@@ -360,7 +361,7 @@ const App: React.FC = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch('http://localhost:8000/chat', {
+      const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -466,7 +467,7 @@ const App: React.FC = () => {
   const fetchDocuments = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/documents');
+      const response = await fetch(`${API_URL}/documents`);
       if (!response.ok) {
         throw new Error(`Failed to fetch documents: ${response.statusText}`);
       }
@@ -497,7 +498,7 @@ const App: React.FC = () => {
   const fetchAnalytics = useCallback(async (documentId: string) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/document/${documentId}/analytics`);
+      const response = await fetch(`${API_URL}/document/${documentId}/analytics`);
       if (!response.ok) {
         throw new Error(`Analytics failed: ${response.statusText}`);
       }
@@ -520,7 +521,7 @@ const App: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/document/${documentId}`, {
+      const response = await fetch(`${API_URL}/document/${documentId}`, {
         method: 'DELETE'
       });
 
@@ -552,7 +553,7 @@ const App: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/keyword-search', {
+      const response = await fetch(`${API_URL}/keyword-search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

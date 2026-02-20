@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config';
 import {
   Box,
   FormControl,
@@ -36,7 +37,7 @@ const EmbeddingProviderSelector: React.FC<EmbeddingProviderSelectorProps> = ({ d
 
   const fetchCurrentProvider = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/embedding-provider');
+      const response = await axios.get(`${API_URL}/embedding-provider`);
       setProvider(response.data.provider);
       setAvailableProviders({
         gemini_available: response.data.gemini_available,
@@ -55,7 +56,7 @@ const EmbeddingProviderSelector: React.FC<EmbeddingProviderSelectorProps> = ({ d
     setSuccess('');
 
     try {
-      const response = await axios.post('http://localhost:8000/embedding-provider', {
+      const response = await axios.post(`${API_URL}/embedding-provider`, {
         provider: newProvider
       });
       
