@@ -24,7 +24,6 @@ wheels/
 *.egg
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -41,7 +40,15 @@ Backend/chroma_db_backup_*/
 Backend/tts_cache/
 Backend/uploads/
 Backend/__pycache__/
+Backend/conversations/
 conversations/
+
+# Misplaced lockfiles
+Backend/package-lock.json
+Frontend/package-lock.json
+
+# IDE
+.vscode/
 
 # Node
 node_modules/
