@@ -15,4 +15,4 @@ services:
       - key: CHROMA_DB_PATH
         value: ./chroma_db
       - key: PYTHON_VERSION
-        value: "3.11.0"
+        value: "3.11.9"
