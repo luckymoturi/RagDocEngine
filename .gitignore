@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+*.pem
+*.key
+
+# Data and cache
+Backend/chroma_db/
+Backend/chroma_db_backup_*/
+Backend/tts_cache/
+Backend/uploads/
+Backend/__pycache__/
+conversations/
+
+# Node
+node_modules/
+package-lock.json
+npm-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
