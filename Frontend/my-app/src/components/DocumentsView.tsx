@@ -172,8 +172,9 @@ const DocumentsView: React.FC<DocumentsViewProps> = ({
             {/* â”€â”€ Document Grid â”€â”€ */}
             <Box sx={{
               display: 'grid',
-              gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+              gridTemplateColumns: { xs: '1fr', sm: '1fr', md: 'repeat(2, 1fr)' },
               gap: 2,
+              maxWidth: '700px',
             }}>
               {documents.map((doc) => (
                 <Card

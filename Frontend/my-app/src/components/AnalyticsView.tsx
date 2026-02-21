@@ -206,21 +206,32 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({
 
         {/* Topics */}
         {analytics.topics && analytics.topics.length > 0 && (
-          <Card sx={{ mb: 3 }}>
-            <CardContent>
-              <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+          <Card sx={{ mb: 3, borderRadius: '12px', border: '1px solid', borderColor: 'divider' }}>
+            <CardContent sx={{ pb: '16px !important' }}>
+              <Typography variant="body2" fontWeight={650} color="#0F172A" gutterBottom>
                 Key Topics
               </Typography>
-              <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mt: 2 }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
                 {analytics.topics.map((topic, index) => (
-                  <Chip
+                  <Box
                     key={index}
-                    label={topic}
-                    color="primary"
-                    sx={{ mb: 1 }}
-                  />
+                    sx={{
+                      display: 'inline-block',
+                      px: 2,
+                      py: 0.75,
+                      borderRadius: '20px',
+                      bgcolor: '#E7EFF3',
+                      color: '#0F172A',
+                      fontSize: '0.875rem',
+                      fontWeight: 500,
+                      transition: 'all 0.2s ease',
+                      '&:hover': { bgcolor: '#D7E5ED', transform: 'translateY(-1px)' },
+                    }}
+                  >
+                    {topic}
+                  </Box>
                 ))}
-              </Stack>
+              </Box>
             </CardContent>
           </Card>
         )}
