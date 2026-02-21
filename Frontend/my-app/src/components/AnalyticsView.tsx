@@ -205,14 +205,14 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({
         </Box>
 
         {/* Topics */}
-        {analytics.topics && analytics.topics.length > 0 && (
+        {analytics.topics && Array.isArray(analytics.topics) && analytics.topics.length > 0 ? (
           <Card sx={{ mb: 3, borderRadius: '12px', border: '1px solid', borderColor: 'divider' }}>
             <CardContent sx={{ pb: '16px !important' }}>
               <Typography variant="body2" fontWeight={650} color="#0F172A" gutterBottom>
                 Key Topics
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-                {analytics.topics.map((topic, index) => (
+                {analytics.topics.map((topic: any, index: number) => (
                   <Box
                     key={index}
                     sx={{
@@ -234,7 +234,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({
               </Box>
             </CardContent>
           </Card>
-        )}
+        ) : null}
 
         {/* Statistics */}
         {analytics.key_statistics && (
@@ -266,7 +266,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({
         )}
 
         {/* Content Analysis */}
-        {analytics.content_analysis && (
+        {analytics.content_analysis ? (
           <Card>
             <CardContent>
               <Typography variant="subtitle2" color="text.secondary" gutterBottom>
@@ -282,7 +282,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({
               </Paper>
             </CardContent>
           </Card>
-        )}
+        ) : null}
       </Container>
     </Box>
   );

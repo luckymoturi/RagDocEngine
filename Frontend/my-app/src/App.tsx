@@ -547,30 +547,49 @@ const App: React.FC = () => {
     }}>
       {/* Header */}
       <Box sx={{
-        p: 2,
+        px: 2,
+        py: 1.5,
         borderBottom: 1,
         borderColor: 'divider',
         bgcolor: darkMode ? 'transparent' : '#FFFFFF',
+        display: 'flex',
+        alignItems: 'center',
+        height: 'auto',
       }}>
-        <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <Stack direction="row" alignItems="center" spacing={1.5}>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" flex={1} spacing={1.5}>
+          <Stack direction="row" alignItems="center" spacing={1.5} sx={{ minHeight: '40px' }}>
             <Box sx={{
               width: 40,
               height: 40,
               borderRadius: '10px',
-              bgcolor: '#0F172A', // Dark Slate matching Image 2
+              bgcolor: '#0F172A',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              flexShrink: 0,
             }}>
               <DescriptionIcon sx={{ color: '#FFFFFF', fontSize: 22 }} />
             </Box>
             <Box>
-              <Typography variant="h6" fontWeight="800" sx={{ letterSpacing: '-0.02em', color: 'text.primary' }}>
+              <Typography variant="h6" fontWeight="800" sx={{ 
+                letterSpacing: '-0.02em', 
+                color: 'text.primary',
+                lineHeight: 1,
+                margin: 0,
+                padding: 0,
+              }}>
                 IntelliDoc
               </Typography>
-              <Typography variant="caption" sx={{ color: 'text.primary', opacity: 0.9, fontWeight: 700, display: 'block', mt: -0.5 }}>
+              <Typography variant="caption" sx={{ 
+                color: 'text.primary', 
+                opacity: 0.9, 
+                fontWeight: 700, 
+                lineHeight: 1,
+                margin: 0,
+                padding: 0,
+                display: 'block',
+              }}>
                 STUDY SYSTEM
               </Typography>
             </Box>
